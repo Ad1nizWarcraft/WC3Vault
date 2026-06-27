@@ -248,5 +248,5 @@ app.delete('/api/assets/:id', (req, res) => {
 
 // ── Start ──────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`WC3 Asset Vault → http://localhost:${PORT}`);
+  console.log(`WC3 Asset Vault http://localhost:${PORT}`);
 });
