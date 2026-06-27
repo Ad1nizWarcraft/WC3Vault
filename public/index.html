@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC3 Asset Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+
+:root {
+  --stone-dark:   #1a1a14;
+  --stone-mid:    #2e2c22;
+  --stone-light:  #4a4638;
+  --stone-border: #6a6450;
+  --stone-hi:     #8a8068;
+
+  --parch:        #c8b882;
+  --parch-dim:    #9a8c5a;
+  --parch-dark:   #5a4e2a;
+
+  --gold:         #d4a840;
+  --gold-hi:      #f0c860;
+  --gold-dim:     #8a6820;
+
+  --green-hi:     #78c840;
+  --red-hi:       #c84040;
+  --blue-hi:      #4898d8;
+  --teal-hi:      #40b8a0;
+  --purple-hi:    #a060d0;
+
+  --text-main:    #e8dca8;
+  --text-dim:     #9a9070;
+  --text-dark:    #1a1a14;
+
+  --bevel-out: inset 2px 2px 0 #8a8068, inset -2px -2px 0 #1a1a14;
+  --bevel-in:  inset 2px 2px 0 #1a1a14, inset -2px -2px 0 #8a8068;
+  --bevel-btn: inset 2px 2px 0 var(--stone-hi), inset -2px -2px 0 #111108;
+
+  --panel-bg:  linear-gradient(160deg, #38352a 0%, #25231a 60%, #1c1b14 100%);
+}
+
+@font-face {
+    font-family: "FRIZQT";
+    src: url("/fonts/FRIZQT.TTF") format("truetype");
+    
+}
+@font-face {
+    font-family: "folkard";
+    src: url("/fonts/folkard.ttf") format("truetype");
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { height:100%; }
+body {
+  background: var(--stone-dark);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.613), rgba(0, 0, 0, 0.679)),
+    url("/images/background.png");
+  color: var(--text-main);
+  font-family: 'FRIZQT';
+  font-size: 18px;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background:var(--stone-dark); }
+::-webkit-scrollbar-thumb { background:var(--stone-light); box-shadow:var(--bevel-out); }
+
+.panel {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.613), rgba(0, 0, 0, 0.679)),
+    url("/images/background.png");
+  box-shadow: var(--bevel-out), 0 4px 24px rgba(0,0,0,.6);
+  border: 1px solid var(--stone-border);
+}
+
+.site-header {
+  position: sticky; top:0; z-index:90;
+  background: linear-gradient(180deg, #3a3420 0%, #252018 100%);
+  border-bottom: 3px solid var(--gold-dim);
+  box-shadow: 0 3px 0 #111, var(--bevel-in);
+  padding: 0 1rem;
+  height: 58px;
+  display: flex; align-items: center; gap: 1rem;
+}
+.logo {
+    display: block;
+    height: auto;
+    width: 120px;
+    object-fit: contain;
+}
+
+.search-wrap { flex:1; max-width:900px; position:relative; display: flex}
+.search-wrap svg {
+  position:absolute; left:10px; top:50%; transform:translateY(-50%);
+  color: var(--parch-dim); pointer-events:none;
+}
+#searchInput {
+  width: 150%;
+  background: #0e0d09;
+  border: none;
+  box-shadow: var(--bevel-in);
+  color: var(--text-main);
+  font-family: 'FRIZQT';
+  font-size: 15px;
+  padding: 8px 12px 8px 34px;
+  outline: none;
+  caret-color: var(--gold);
+  flex: 1;
+  min-width: 400px;
+}
+#searchInput::placeholder { color: var(--text-dim); }
+#searchInput:focus { box-shadow: var(--bevel-in), 0 0 0 1px var(--gold-dim); }
+
+.filter-row { display:flex; gap:.35rem; flex-shrink:0; }
+.pill {
+  font-family: 'FRIZQT';
+  font-size: 18px;
+  padding: 5px 12px;
+  background: var(--stone-mid);
+  border: 1px solid var(--stone-border);
+  box-shadow: var(--bevel-btn);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color .12s;
+}
+.pill:hover { color:var(--parch); }
+.pill.active { background:var(--stone-light); color:var(--gold); box-shadow:var(--bevel-in); }
+
+#sortSelect {
+  background: #0e0d09;
+  box-shadow: var(--bevel-in);
+  border: none;
+  color: var(--parch);
+  font-family: 'FRIZQT';
+  font-size: 18px;
+  padding: 6px 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+#sortSelect option { background:#1a1a14; }
+
+.upload-icon {
+    height: 25px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.upload-btn {
+  display: flex; align-items:center; gap:6px;
+  background: linear-gradient(180deg, #a96e00 0%, #f4a512 100%);
+  box-shadow: var(--bevel-btn), 0 2px 8px rgba(0,0,0,.5);
+  border: 1px solid #8c5d00;
+  color: #ffffff;
+  font-family: 'FRIZQT';
+  font-size: 18px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: filter .1s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.upload-btn:hover { filter: brightness(1.15); }
+.upload-btn:active { box-shadow: var(--bevel-in); }
+
+.layout { display:flex; height:calc(100vh - 58px); }
+
+.sidebar {
+  width: 200px; flex-shrink:0;
+  background-image:
+    linear-gradient(rgba(35, 29, 15, 0.796), rgba(51, 39, 8, 0.368)),
+    url("/images/background.png");
+  border-right: 3px solid var(--stone-border);
+  box-shadow: inset -2px 0 0 #111;
+  padding: 1rem .75rem;
+  overflow-y: hidden;
+  display: flex; flex-direction:column; gap:1.25rem;
+}
+.sidebar-icon {
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.sidebar-section h3 {
+  font-family: 'FRIZQT';
+  font-size: 20px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  margin-bottom: .6rem;
+}
+.sidebar-link {
+  display:block; padding:4px 6px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all .1s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar-link:hover  { color:var(--parch); border-color:var(--stone-hi); }
+.sidebar-link.active { color:var(--gold);  border-color:var(--gold); background:rgba(212,168,64,.08); }
+
+.tag-cloud { display:flex; flex-wrap:wrap; gap:4px; overflow-y:auto; }
+.sidebar-section-tags { display:flex; flex-direction:column; flex:1; min-height:0; }
+.tag-chip {
+  font-family:'FRIZQT';
+  font-size:12px; padding:2px 7px;
+  background:var(--gold-dim); border:1px solid var(--text-dark);
+  color:var(rgb(255, 255, 255)); cursor:pointer; transition:all .1s;
+}
+.tag-chip:hover { color:var(--parch); border-color:var(--stone-hi); }
+.tag-chip.active { color:var(--gold); border-color:var(--gold-dim); background:rgba(212,168,64,.1); }
+
+.stat-line { font-family:'FRIZQT'; font-size:15px; color:var(--text-dim); }
+.stat-line b { color:var(--parch); }
+
+.content { flex:1; overflow-y:auto; padding:1rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: .85rem;
+}
+
+.card {
+  background: var(--panel-bg);
+  border: 8px solid transparent;
+
+  border-image-source: url("/images/border.png");
+  border-image-slice: 16;
+  border-image-repeat: repeat;
+  cursor: pointer;
+  transition: filter .12s;
+  display: flex; flex-direction:column;
+}
+.card:hover { filter:brightness(1.12); }
+.card:active { filter:brightness(1.30); }
+
+.card-thumb {
+  width:100%; aspect-ratio:1;
+  background:#0e0d09;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden; position:relative;
+  box-shadow: inset 2px 2px 0 #111, inset -2px -2px 0 var(--stone-light);
+}
+.card-thumb img { width:100%; height:100%; object-fit:contain; display:block; }
+.card-thumb .no-thumb {
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  color: var(--stone-hi);
+  font-family:'FRIZQT';
+  font-size: 16px;
+  padding: .5rem;
+  text-align: center;
+  word-break: break-all;
+}
+.card-thumb .no-thumb svg { opacity:.4; flex-shrink:0; }
+
+.ext-badge {
+  position:absolute; bottom:4px; right:4px;
+  font-family:'FRIZQT'; font-size:12px; font-weight:bold;
+  padding:1px 5px;
+  background:rgba(0,0,0,.75);
+  border:1px solid;
+}
+.ext-mdx  { color:var(--gold-hi);  border-color:var(--gold-hi); }
+.ext-blp  { color:var(--gold-hi);   border-color:var(--gold-hi); }
+.ext-icon { color:var(--gold-hi); border-color:var(--gold-hi); }
+.ext-img  { color:var(--gold-hi);   border-color:var(--gold-hi); }
+.ext-arc  { color:var(--gold);      border-color:var(--gold); }
+
+.card-body { padding:.6rem .75rem; flex:1; display:flex; flex-direction:column; gap:3px; }
+.card-name {
+  font-family:'FRIZQT'; font-size:14px; font-weight:bold;
+  color:var(--parch);
+  white-space:nowrap; overflow:clip; text-overflow:clip;
+}
+.card-desc {
+  font-size:13px; color:var(--text-dim);
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  line-height:1.4;
+}
+.card-meta {
+  margin-top:4px; display:flex; align-items:center; gap:.4rem; flex-wrap:wrap;
+  font-family:'FRIZQT'; font-size:10px; color:var(--text-dim);
+}
+.card-tag {
+  padding:0 5px; background:var(--gold-dim); border:1px solid var(--text-dark);
+  color:rgb(255, 213, 122); font-size:12px; 
+  
+}
+.card-type-badge {
+  font-family:'FRIZQT'; font-size:15px;
+  padding:1px 5px; border:0.5px solid;
+  background:rgba(0,0,0,.4);
+}
+.ctb-icon { color:var(--gold-hi); border-color:var(--gold-hi); }
+.ctb-blp  { color:var(--gold-hi);  border-color:var(--gold-hi); }
+
+.empty-state {
+  grid-column:1/-1; text-align:center; padding:4rem 2rem; color:var(--text-dim);
+}
+.empty-state h2 { font-family:'FRIZQT'; color:var(--parch-dim); margin-bottom:.5rem; }
+
+.modal-bg {
+  display:none; position:fixed; inset:0; z-index:200;
+  background:rgba(8,7,4,.88);
+  align-items:center; justify-content:center;
+}
+.modal-bg.open { display:flex; }
+.modal {
+  width:min(860px,96vw); max-height:92vh;
+  background: linear-gradient(160deg,#35322a 0%,#201e18 100%);
+  border: 16px solid transparent;
+  border-image-source: url("/images/border.png");
+  border-image-slice: 16;
+  border-image-repeat: repeat;
+  box-shadow: var(--bevel-out), 0 32px 80px rgba(0,0,0,.8);
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.modal-bar {
+  background:linear-gradient(180deg,#4a4228 0%,#2e2a1e 100%);
+  border-bottom:2px solid var(--gold-dim);
+  padding:.7rem 1rem;
+  display:flex; align-items:center; gap:.75rem;
+  flex-shrink:0;
+}
+.modal-title {
+  font-family:'FRIZQT'; font-size:2rem;
+  color:var(--gold); text-shadow:1px 1px 0 #000;
+  flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.modal-close {
+  background:none; border:none; color:var(--text-dim); cursor:pointer;
+  font-size:18px; line-height:1; padding:2px 6px;
+  transition:color .1s;
+}
+.modal-close:hover { color:var(--red-hi); }
+
+.modal-inner { flex:1; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+
+.modal-viewer {
+  flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:1.25rem;
+  background: repeating-conic-gradient(#1a1a14 0% 25%, #141410 0% 50%) 0 0 / 20px 20px;
+  min-height:240px; max-height:340px;
+}
+.modal-viewer canvas, .modal-viewer img {
+  max-width:100%; max-height:300px;
+  box-shadow:var(--bevel-out);
+  image-rendering:pixelated;
+}
+
+.modal-details {
+  flex:1; overflow-y:auto; overflow-x:hidden;
+  display:flex; flex-direction:column;
+}
+
+.viewer-error {
+  padding:2rem; text-align:center; color:var(--red-hi);
+  font-family:'FRIZQT'; font-size:20px; line-height:1.6;
+}
+
+.blp-wrap {
+  display:contents;
+}
+
+.info-panel {
+  border-top:2px solid var(--stone-border);
+  padding:.7rem 1.1rem;
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:.45rem .75rem;
+  font-size:15px;
+  flex-shrink:0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.613), rgba(0, 0, 0, 0.679)),
+    url("/images/background.png");
+}
+.info-row { display:flex; flex-direction:column; gap:2px; }
+.info-label { font-family:'FRIZQT'; font-size:18px; letter-spacing:.1em; color:var(--text-dim); text-transform:uppercase; }
+.info-val { color:var(--parch); word-break:break-all; }
+
+.info-tags { grid-column:1/-1; display:flex; flex-wrap:wrap; gap:4px; }
+
+.image-strip {
+  border-top:2px solid var(--stone-border);
+  padding:.6rem .9rem;
+  display:flex; gap:.5rem; overflow-x:auto;
+  flex-shrink:0;
+  background:#0e0d09;
+}
+.strip-img {
+  width:128px; height:128px; flex-shrink:0; object-fit:cover;
+  box-shadow:var(--bevel-out); cursor:pointer;
+  transition:filter .1s;
+}
+.strip-img:hover { filter:brightness(1.2); }
+
+.modal-footer {
+  border-top:2px solid var(--stone-border);
+  padding:.6rem 1rem;
+  display:flex; gap:.5rem; justify-content:flex-end;
+  background:linear-gradient(180deg,#2a2820 0%,#1a1810 100%);
+  flex-shrink:0;
+}
+.btn {
+  font-family:'FRIZQT'; font-size:13px;
+  padding:6px 18px;
+  background:var(--stone-mid);
+  border:1px solid var(--stone-border);
+  box-shadow:var(--bevel-btn);
+  color:var(--text-dim); cursor:pointer; transition:color .1s;
+}
+.btn:hover { color:var(--parch); }
+.btn:active { box-shadow:var(--bevel-in); }
+.btn-dl {
+  background:linear-gradient(180deg,#836019 0%,#cf970a 100%);
+  border-color:#706328; color:#ffffff;
+}
+.btn-dl:hover { color:#f2c00a; }
+
+.upload-modal-bg {
+  display:none; position:fixed; inset:0; z-index:300;
+  background:rgba(8,7,4,.92);
+  align-items:center; justify-content:center;
+}
+.upload-modal-bg.open { display:flex; }
+.upload-modal {
+  width:min(580px,96vw); max-height:92vh; overflow-y:auto;
+  background:linear-gradient(160deg,#35322a 0%,#201e18 100%);
+  border: 16px solid transparent;
+  border-image-source: url("/images/border.png");
+  border-image-slice: 20;
+  border-image-repeat: repeat;
+  box-shadow:var(--bevel-out), 0 24px 60px rgba(0,0,0,.8);
+}
+.upload-modal .modal-bar { border-bottom:2px solid var(--stone-border); position:sticky; top:0; z-index:1; }
+.upload-form {
+  padding:1.25rem;
+  display:flex; flex-direction:column; gap:1rem;
+}
+.form-group { display:flex; flex-direction:column; gap:4px; }
+.form-label {
+  font-family:'FRIZQT'; font-size:15px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim);
+}
+.form-input, .form-textarea, .form-select {
+  background:#0e0d09; border:none; box-shadow:var(--bevel-in);
+  color:var(--text-main); font-family:'FRIZQT'; font-size:13px;
+  padding:7px 10px; outline:none; caret-color:var(--gold);
+  resize:vertical;
+}
+.form-select { cursor:pointer; }
+.form-select option { background:#1a1a14; }
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  box-shadow:var(--bevel-in), 0 0 0 1px var(--gold-dim);
+}
+.form-textarea { min-height:70px; }
+.file-drop {
+  border:2px dashed var(--stone-border); padding:1.5rem;
+  text-align:center; cursor:pointer; transition:border-color .15s;
+  color:var(--text-dim); font-size:12px; line-height:1.8;
+}
+.file-drop:hover { border-color:var(--gold-dim); color:var(--parch); }
+.file-drop b { display:block; font-family:'FRIZQT'; font-size:14px; color:var(--parch-dim); margin-bottom:4px; }
+.file-name { margin-top:.4rem; font-family:'FRIZQT'; font-size:11px; color:var(--green-hi); }
+.upload-row { display:flex; align-items: center; gap:0.8rem; }
+.upload-row .form-group { flex:1; }
+.progress-bar-wrap {
+  display:none; height:6px; background:var(--stone-dark); box-shadow:var(--bevel-in);
+}
+.progress-bar { height:100%; width:0; background:var(--green-hi); transition:width .2s; }
+
+.upload2-icon{
+    height: 25px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.type-selector { display:flex; gap:.35rem; flex-wrap:wrap; }
+.type-btn {
+  font-family:'FRIZQT'; font-size:14px;
+  display: flex;
+  padding:5px 12px;
+  align-items:center;
+  justify-content: center;
+  background:var(--stone-mid); border:1px solid var(--stone-border);
+  box-shadow:var(--bevel-btn); color:var(--text-dim); cursor:pointer;
+  transition:color .12s;
+}
+.type-btn:hover { color:var(--parch); }
+.type-btn.active { background:var(--stone-light); color:var(--gold); box-shadow:var(--bevel-in); }
+
+.about-btn {
+  display:flex; align-items:center; justify-content:center;
+  width:80px; height:34px; flex-shrink:0;
+  background:var(--stone-mid);
+  border:1px solid var(--stone-border);
+  box-shadow:var(--bevel-btn);
+  color:var(--parch-dim);
+  font-family:'FRIZQT'; font-size:18px; font-weight:bold;
+  cursor:pointer; transition:color .1s, filter .1s;
+  border-radius:0;
+}
+.about-btn:hover { color:var(--gold); filter:brightness(1.2); }
+.about-btn:active { box-shadow:var(--bevel-in); }
+
+.about-modal-bg {
+  display:none; position:fixed; inset:0; z-index:350;
+  background:rgba(8,7,4,.92);
+  align-items:center; justify-content:center;
+}
+.about-modal-bg.open { display:flex; }
+.about-modal {
+  width:min(500px,92vw);
+  background:linear-gradient(160deg,#35322a 0%,#201e18 100%);
+  border: 16px solid transparent;
+  border-image-source: url("/images/border.png");
+  border-image-slice: 16;
+  border-image-repeat: repeat;
+  box-shadow:var(--bevel-out), 0 24px 60px rgba(0,0,0,.8);
+  display:flex; flex-direction:column;
+}
+.about-body {
+  padding:1.4rem 1.5rem 1.6rem;
+  display:flex; flex-direction:column; gap:1rem;
+  font-size:15px; color:var(--text-main); line-height:1.7;
+}
+.about-body h2 {
+  font-family:'FRIZQT'; font-size:1.4rem; color:var(--gold);
+  border-bottom:1px solid var(--gold-dim); padding-bottom:.4rem;
+}
+.about-body p { color:var(--parch); }
+.about-contact { display:flex; flex-direction:column; gap:.35rem; margin-top:.25rem; }
+.about-contact a {
+  color:var(--gold); text-decoration:none; font-family:'FRIZQT'; font-size:14px;
+  transition:color .1s;
+}
+.about-contact a:hover { color:var(--gold-hi); }
+.about-contact span { color:var(--text-dim); font-size:13px; margin-right:.4rem; }
+.toasts { position:fixed; bottom:1rem; right:1rem; z-index:400; display:flex; flex-direction:column; gap:.4rem; }
+.toast {
+  padding:.5rem 1rem;
+  background:var(--stone-mid); border:1px solid var(--stone-border);
+  box-shadow:var(--bevel-out);
+  font-family:'FRIZQT'; font-size:12px; color:var(--text-main);
+  animation:fadein .2s;
+  max-width:320px;
+}
+.toast.ok  { border-color:var(--green-hi); color:var(--green-hi); }
+.toast.err { border-color:var(--red-hi);   color:var(--red-hi);   }
+@keyframes fadein { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+.drop-overlay {
+  display:none; position:fixed; inset:0; z-index:500;
+  background:rgba(14,13,9,.9);
+  border:4px dashed var(--gold-dim);
+  align-items:center; justify-content:center; flex-direction:column; gap:1rem;
+  font-family:'FRIZQT'; font-size:1.5rem; color:var(--gold);
+}
+.drop-overlay.show { display:flex; }
+.drop-overlay p { font-size:.9rem; color:var(--parch-dim); font-family:'FRIZQT'; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="/images/logo.png" alt="WC3 Vault">
+
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input id="searchInput" type="text" placeholder="Search assets, tags, authors…" autocomplete="off">
+  </div>
+
+  <select id="sortSelect">
+    <option value="recent">Newest first</option>
+    <option value="name">By name</option>
+    <option value="size">By size</option>
+    <option value="downloads">Most downloaded</option>
+  </select>
+
+  <button class="about-btn" id="openAbout" title="About / Contact"><img src="/icons/info.webp" class="sidebar-icon" alt="">Info</button>
+
+  <button class="upload-btn" id="openUpload">
+    <img src="/icons/upload.webp" class="upload-icon" alt="">
+    Upload Asset
+  </button>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <h3>Browse</h3>
+      <a class="sidebar-link active" data-type="all">All Assets</a>
+      <a class="sidebar-link" data-type="mdx"><img src="/icons/models.webp" class="sidebar-icon" alt="">Models</a>
+      <a class="sidebar-link" data-type="blp"><img src="/icons/textures.webp" class="sidebar-icon" alt="">Textures</a>
+      <a class="sidebar-link" data-type="icon"><img src="/icons/icons.webp" class="sidebar-icon" alt="">Icons</a>
+      <a class="sidebar-link" data-type="ported"><img src="/icons/ported.webp" class="sidebar-icon" alt="">Ported</a>
+    </div>
+    <div class="sidebar-section">
+      <h3>Stats</h3>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <div class="stat-line">Total: <b id="statTotal">—</b></div>
+        <div class="stat-line">Models: <b id="statMdx">—</b></div>
+        <div class="stat-line">Textures: <b id="statBlp">—</b></div>
+        <div class="stat-line">Icons: <b id="statIcon">—</b></div>
+        <div class="stat-line">Ported: <b id="statPorted">—</b></div>
+        <div class="stat-line">Downloads: <b id="statDownloads">—</b></div>
+      </div>
+    </div>
+    <div class="sidebar-section sidebar-section-tags">
+      <h3>Tags</h3>
+      <div class="tag-cloud" id="tagCloud"></div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-bar">
+      <div class="modal-title" id="modalTitle">—</div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-inner" id="modalInner"></div>
+    <div class="modal-footer">
+      <button class="btn" id="modalCloseBtn">Close</button>
+      <button class="btn btn-dl" id="modalDlBtn">Download</button>
+    </div>
+  </div>
+</div>
+
+<div class="upload-modal-bg" id="uploadBg">
+  <div class="upload-modal">
+    <div class="modal-bar">
+      <div class="modal-title">Upload New Asset</div>
+      <button class="modal-close" id="closeUpload">✕</button>
+    </div>
+    <div class="upload-form">
+
+      <div class="form-group">
+        <span class="form-label">Asset Type *</span>
+        <div class="type-selector" id="assetTypeBtns">
+          <button class="type-btn active" data-atype="mdx"><img src="/icons/models.webp" class="upload2-icon" alt="">Model</button>
+          <button class="type-btn" data-atype="blp"><img src="/icons/textures.webp" class="upload2-icon" alt="">Texture</button>
+          <button class="type-btn" data-atype="icon"><img src="/icons/icons.webp" class="upload2-icon" alt="">Icon</button>
+          <button class="type-btn" data-atype="ported"><img src="/icons/ported.webp" class="upload2-icon" alt="">Ported</button>
+        </div>
+        <input type="hidden" id="upAssetType" value="mdx">
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">File *</span>
+        <div class="file-drop" id="mainDrop">
+          <b>Click or drop file here</b>
+          <span id="mainDropHint">.mdx · .mdl · .zip · .rar</span>
+          <div class="file-name" id="mainFileName"></div>
+        </div>
+        <input type="file" id="mainFile" accept=".mdx,.mdl,.blp,.png,.jpg,.jpeg,.gif,.bmp,.tga,.webp,.zip,.rar" style="display:none">
+      </div>
+
+      <div class="upload-row">
+        <div class="form-group">
+          <span class="form-label">Display name</span>
+          <input class="form-input" type="text" id="upName" placeholder="e.g. Footman v2">
+        </div>
+        <div class="form-group">
+          <span class="form-label">Uploader</span>
+          <input class="form-input" type="text" id="uploader" placeholder="Your name / handle">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Author <small style="color:var(--text-dim);font-size:11px;text-transform:none;letter-spacing:0">(original creator, if different)</small></span>
+        <input class="form-input" type="text" id="upAuthor" placeholder="e.g. Blizzard, Illidan_Hunter">
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Description</span>
+        <textarea class="form-textarea" id="upDesc" placeholder="What is this asset? Any credits or notes?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Tags (comma separated)</span>
+        <input class="form-input" type="text" id="upTags" placeholder="e.g. undead, hero, aura">
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Thumbnail image (optional)</span>
+        <div class="file-drop" id="thumbDrop" style="padding:1rem">
+          <b>Click or drop thumbnail</b>
+          <div class="file-name" id="thumbFileName"></div>
+        </div>
+        <input type="file" id="thumbFile" accept=".png,.jpg,.jpeg,.gif,.webp" style="display:none">
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Additional images (optional, up to 8)</span>
+        <div class="file-drop" id="imgsDrop" style="padding:1rem">
+          <b>Click or drop images</b>
+          <div class="file-name" id="imgsFileName"></div>
+        </div>
+        <input type="file" id="imgsFile" accept=".png,.jpg,.jpeg,.gif,.webp" multiple style="display:none">
+      </div>
+
+      <div class="progress-bar-wrap" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+
+      <div style="display:flex;justify-content:flex-end;gap:.5rem">
+        <button class="btn" id="cancelUpload">Cancel</button>
+        <button class="btn btn-dl" id="submitUpload">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about-modal-bg" id="aboutBg">
+  <div class="about-modal">
+    <div class="modal-bar">
+      <div class="modal-title">About</div>
+      <button class="modal-close" id="closeAbout">✕</button>
+    </div>
+    <div class="about-body">
+      <div>
+        <h2>WC3 Vault</h2>
+        <p>A community repository for Warcraft III assets, including models, icons, textures, etc, with archival and preservation as primary goals. You can upload any asset from anywhere. If you know the creator, please do try and credit them.
+        </p>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <div class="about-contact">
+          <div><span>Discord:</span><a href="#">AdinizWarcraft</a></div>
+          <div><span>Email:</span><a href="mailto:adinizwarcraft@gmail.com">adinizwarcraft@gmail.com</a></div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;">All assets remain property of their respective authors, but requests for removal will be ignored. Please credit creators when using assets in your maps.</p>
+    </div>
+  </div>
+</div>
+
+<div class="drop-overlay" id="dropOverlay">
+  ⚔ Drop Asset Here
+  <p>Release to upload your file</p>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="/js/blp-decoder.js"></script>
+<script>
+let state = {
+  assets:     [],
+  total:      0,
+  typeFilter: 'all',
+  tagFilters: new Set(),
+  sort:       'recent',
+  query:      '',
+  page:       1,
+};
+
+let activeModalAsset   = null;
+let activeViewerDispose = null;
+
+function extOf(name) { return (name||'').split('.').pop().toLowerCase(); }
+
+function fmtBytes(b) {
+  if (b < 1024)    return b + ' B';
+  if (b < 1<<20)   return (b >> 10) + ' KB';
+  return (b / (1<<20)).toFixed(1) + ' MB';
+}
+
+function toast(msg, type='ok') {
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.textContent = msg;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+
+function assetDisplayType(a) {
+  if (a.assetType) return a.assetType;
+  const ext = extOf(a.ext || a.name);
+  if (['mdx','mdl'].includes(ext)) return 'mdx';
+  if (['blp','png','jpg','jpeg','gif','bmp','tga','webp'].includes(ext)) return 'blp';
+  return 'other';
+}
+
+const TYPE_LABELS = {
+  mdx:    'Model',
+  blp:    'Texture',
+  icon:   'Icon',
+  ported: 'Ported',
+  other:  'Asset',
+};
+function typeBadgeLabel(asset) {
+  return TYPE_LABELS[assetDisplayType(asset)] || 'Asset';
+}
+
+function typeBadgeClass(asset) {
+  const at = assetDisplayType(asset);
+  if (at === 'mdx')    return 'ext-mdx';
+  if (at === 'icon')   return 'ext-icon';
+  if (at === 'blp')    return 'ext-blp';
+  if (at === 'ported') return 'ext-mdx';
+  return 'ext-img';
+}
+
+function resolveThumb(a) {
+  if (a.thumbnail) return a.thumbnail;
+  if ((a.images || []).length) return a.images[0];
+  const ext = extOf(a.ext || a.name);
+  if (['png','jpg','jpeg','gif','webp','bmp'].includes(ext)) return a.fileUrl;
+  return null;
+}
+
+function resolvePreview(a) {
+  if ((a.images || []).length) return a.images[0];
+  if (a.thumbnail) return a.thumbnail;
+  const ext = extOf(a.ext || a.name);
+  if (['png','jpg','jpeg','gif','webp','bmp'].includes(ext)) return a.fileUrl;
+  return null;
+}
+
+function downloadFilename(asset) {
+  if (asset.filename) return asset.filename;
+  if (asset.fileUrl) return asset.fileUrl.split('/').pop();
+  return asset.name;
+}
+
+async function fetchAssets() {
+  const params = new URLSearchParams({
+    q:     state.query,        // text search only — no tags injected here
+    type:  state.typeFilter,
+    sort:  state.sort,
+    page:  state.tagFilters.size > 0 ? 1 : state.page,
+    limit: state.tagFilters.size > 0 ? 9999 : 60,
+  });
+  const r = await fetch('/api/assets?' + params);
+  if (!r.ok) throw new Error('Failed to load assets');
+  return r.json();
+}
+
+async function loadAndRender() {
+  try {
+    const data = await fetchAssets();
+    let assets = data.assets;
+
+    if (state.tagFilters.size > 0) {
+      const required = [...state.tagFilters].map(t => t.toLowerCase());
+      assets = assets.filter(a =>
+        required.every(tag =>
+          (a.tags || []).some(t => t.toLowerCase() === tag)
+        )
+      );
+    }
+
+    state.assets = assets;
+    state.total  = assets.length;
+    renderGrid();
+    renderSidebar();
+  } catch(e) {
+    toast('Failed to load assets: ' + e.message, 'err');
+  }
+}
+
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+
+  if (!state.assets.length) {
+    grid.innerHTML = `<div class="empty-state">
+      <h2>No assets found</h2>
+      <p>Try a different search or upload the first one!</p>
+    </div>`;
+    return;
+  }
+
+  for (const a of state.assets) {
+    const ext  = extOf(a.ext || a.name);
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const thumb = resolveThumb(a);
+    const isModel = ['mdx','mdl'].includes(ext);
+    const modelIcon = '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>';
+    const imgIcon   = '<rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>';
+
+    card.innerHTML = `
+      <div class="card-thumb">
+        ${thumb
+          ? `<img src="${thumb}" alt="" loading="lazy">`
+          : `<div class="no-thumb">
+               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                 ${isModel ? modelIcon : imgIcon}
+               </svg>
+               ${a.name}
+             </div>`
+        }
+        <span class="ext-badge ${typeBadgeClass(a)}">${typeBadgeLabel(a)}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name" title="${a.name}">${a.name}</div>
+        ${a.description ? `<div class="card-desc">${a.description}</div>` : ''}
+        <div class="card-meta">
+          <span>${fmtBytes(a.size)}</span>
+          ${(a.downloads||0) > 0 ? `<span title="Downloads">⬇ ${a.downloads}</span>` : ''}
+          ${(a.tags||[]).slice(0,5).map(t=>`<span class="card-tag">${t}</span>`).join('')}
+        </div>
+      </div>`;
+    card.addEventListener('click', () => openModal(a));
+    grid.appendChild(card);
+  }
+}
+
+async function renderSidebar() {
+  try {
+    const all = await fetch('/api/assets?limit=9999').then(r => r.json());
+    const mdx      = all.assets.filter(a => assetDisplayType(a) === 'mdx').length;
+    const blp      = all.assets.filter(a => assetDisplayType(a) === 'blp').length;
+    const icon     = all.assets.filter(a => assetDisplayType(a) === 'icon').length;
+    const ported   = all.assets.filter(a => assetDisplayType(a) === 'ported').length;
+    const totalDls = all.assets.reduce((sum, a) => sum + (a.downloads||0), 0);
+
+    document.getElementById('statTotal').textContent     = all.total;
+    document.getElementById('statMdx').textContent       = mdx;
+    document.getElementById('statBlp').textContent       = blp;
+    document.getElementById('statIcon').textContent      = icon;
+    document.getElementById('statPorted').textContent    = ported;
+    document.getElementById('statDownloads').textContent = totalDls;
+
+    const tagCounts = {};
+    for (const a of all.assets) {
+      for (const t of (a.tags||[])) tagCounts[t] = (tagCounts[t]||0) + 1;
+    }
+    const sorted = Object.entries(tagCounts).sort((a,b) => b[1]-a[1]);
+    const cloud  = document.getElementById('tagCloud');
+    cloud.innerHTML = sorted.map(([t,n]) =>
+      `<span class="tag-chip${state.tagFilters.has(t)?' active':''}" data-tag="${t}">${t} <small>${n}</small></span>`
+    ).join('');
+    cloud.querySelectorAll('.tag-chip').forEach(el => {
+      el.addEventListener('click', () => {
+        const t = el.dataset.tag;
+        if (state.tagFilters.has(t)) {
+          state.tagFilters.delete(t);
+        } else {
+          state.tagFilters.add(t);
+        }
+        cloud.querySelectorAll('.tag-chip').forEach(chip => {
+          chip.classList.toggle('active', state.tagFilters.has(chip.dataset.tag));
+        });
+        loadAndRender();
+      });
+    });
+  } catch {}
+}
+
+function openModal(asset) {
+  activeModalAsset = asset;
+  document.getElementById('modalTitle').textContent = asset.name;
+  document.getElementById('modalBg').classList.add('open');
+  buildModalBody(asset);
+}
+
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('open');
+  if (activeViewerDispose) { activeViewerDispose(); activeViewerDispose = null; }
+  activeModalAsset = null;
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+document.getElementById('modalBg').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+document.getElementById('modalDlBtn').addEventListener('click', async () => {
+  if (!activeModalAsset) return;
+  try {
+    const r = await fetch(`/api/assets/${activeModalAsset.id}/download`, { method: 'POST' });
+    if (r.ok) {
+      const data = await r.json();
+      activeModalAsset.downloads = data.downloads;
+      const countEl = document.getElementById('modalDownloadCount');
+      if (countEl) countEl.textContent = ` ${data.downloads}`;
+      renderSidebar();
+    }
+  } catch {}
+  const a = document.createElement('a');
+  a.href     = activeModalAsset.fileUrl;
+  a.download = downloadFilename(activeModalAsset);
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+
+function buildModalBody(asset) {
+  const inner = document.getElementById('modalInner');
+  inner.innerHTML = '';
+  if (activeViewerDispose) { activeViewerDispose(); activeViewerDispose = null; }
+
+  const ext   = extOf(asset.ext || asset.name);
+  const atype = assetDisplayType(asset);
+
+  const viewer = document.createElement('div');
+  viewer.className = 'modal-viewer';
+
+  if (ext === 'blp') {
+    const canvas = document.createElement('canvas');
+    viewer.appendChild(canvas);
+    fetch(asset.fileUrl)
+      .then(r => r.arrayBuffer())
+      .then(buf => BLPDecoder.drawBLPToCanvas(buf, canvas))
+      .catch(e => {
+        viewer.innerHTML = `<div class="viewer-error">⚠ BLP decode error: ${e.message}<br><small style="color:var(--text-dim)">You can still download the file.</small></div>`;
+      });
+  } else if (['png','jpg','jpeg','gif','bmp','tga','webp'].includes(ext)) {
+    viewer.innerHTML = `<img src="${asset.fileUrl}" alt="${asset.name}" style="image-rendering:auto">`;
+  } else {
+    const preview = resolvePreview(asset);
+    if (preview) {
+      viewer.innerHTML = `<img src="${preview}" alt="${asset.name}" style="image-rendering:auto">`;
+    } else {
+      viewer.innerHTML = `<div class="viewer-error" style="color:var(--text-dim)">
+        No preview available for this file type.<br>
+        <small style="color:var(--stone-hi)">Download the file to use it.</small>
+      </div>`;
+    }
+  }
+  inner.appendChild(viewer);
+
+  const details = document.createElement('div');
+  details.className = 'modal-details';
+
+  const info = document.createElement('div');
+  info.className = 'info-panel';
+  info.innerHTML = `
+    <div class="info-row"><span class="info-label">Name</span><span class="info-val">${asset.name}</span></div>
+    <div class="info-row"><span class="info-label">File</span><span class="info-val">${downloadFilename(asset)}</span></div>
+    <div class="info-row"><span class="info-label">Size</span><span class="info-val">${fmtBytes(asset.size)}</span></div>
+    <div class="info-row"><span class="info-label">Type</span><span class="info-val" style="text-transform:capitalize">${atype}</span></div>
+    <div class="info-row"><span class="info-label">Uploader</span><span class="info-val">${asset.uploader||'Anonymous'}</span></div>
+    ${asset.author ? `<div class="info-row"><span class="info-label">Author</span><span class="info-val">${asset.author}</span></div>` : ''}
+    <div class="info-row"><span class="info-label">Uploaded</span><span class="info-val">${new Date(asset.uploadedAt).toLocaleDateString()}</span></div>
+    <div class="info-row"><span class="info-label">Downloads</span><span class="info-val" id="modalDownloadCount"> ${asset.downloads||0}</span></div>
+    ${asset.description ? `<div class="info-row" style="grid-column:1/-1"><span class="info-label">Description</span><span class="info-val" style="white-space:pre-wrap">${asset.description}</span></div>` : ''}
+    ${(asset.tags||[]).length ? `<div class="info-tags">${asset.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>` : ''}
+  `;
+  details.appendChild(info);
+
+  if ((asset.images||[]).length) {
+    const strip = document.createElement('div');
+    strip.className = 'image-strip';
+    for (const url of asset.images) {
+      const img = document.createElement('img');
+      img.className = 'strip-img';
+      img.src = url;
+      img.addEventListener('click', () => window.open(url, '_blank'));
+      strip.appendChild(img);
+    }
+    details.appendChild(strip);
+  }
+
+  inner.appendChild(details);
+}
+
+const FILE_HINTS = {
+  mdx:  '.mdx · .mdl · .zip · .rar',
+  blp:  '.blp · .png · .jpg · .gif · .bmp · .tga · .webp · .zip · .rar',
+  icon: '.blp · .png · .jpg · .gif · .webp',
+};
+
+document.querySelectorAll('.type-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const atype = btn.dataset.atype;
+    document.getElementById('upAssetType').value = atype;
+    document.getElementById('mainDropHint').textContent = FILE_HINTS[atype] || '';
+  });
+});
+
+document.getElementById('openUpload').addEventListener('click', () => {
+  document.getElementById('uploadBg').classList.add('open');
+});
+document.getElementById('closeUpload').addEventListener('click', closeUpload);
+document.getElementById('cancelUpload').addEventListener('click', closeUpload);
+document.getElementById('uploadBg').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeUpload();
+});
+
+function closeUpload() {
+  document.getElementById('uploadBg').classList.remove('open');
+  ['mainFile','thumbFile','imgsFile'].forEach(id => document.getElementById(id).value = '');
+  ['mainFileName','thumbFileName','imgsFileName'].forEach(id => document.getElementById(id).textContent = '');
+  document.getElementById('upAuthor').value = '';
+  document.getElementById('progressBar').style.width = '0';
+  document.getElementById('progressWrap').style.display = 'none';
+}
+
+function bindDrop(dropId, inputId, nameId) {
+  const drop  = document.getElementById(dropId);
+  const input = document.getElementById(inputId);
+  const nameEl = document.getElementById(nameId);
+
+  drop.addEventListener('click', () => input.click());
+  drop.addEventListener('dragover', e => {
+    e.preventDefault();
+    drop.style.borderColor = 'var(--gold)';
+  });
+  drop.addEventListener('dragleave', () => drop.style.borderColor = '');
+  drop.addEventListener('drop', e => {
+    e.preventDefault();
+    drop.style.borderColor = '';
+    const dt = new DataTransfer();
+    for (const f of e.dataTransfer.files) dt.items.add(f);
+    input.files = dt.files;
+    updateName();
+  });
+  input.addEventListener('change', updateName);
+
+  function updateName() {
+    const files = [...input.files];
+    nameEl.textContent = files.length ? files.map(f => f.name).join(', ') : '';
+  }
+}
+bindDrop('mainDrop',  'mainFile',  'mainFileName');
+bindDrop('thumbDrop', 'thumbFile', 'thumbFileName');
+bindDrop('imgsDrop',  'imgsFile',  'imgsFileName');
+
+document.getElementById('submitUpload').addEventListener('click', async () => {
+  const mainFile = document.getElementById('mainFile').files[0];
+  if (!mainFile) { toast('Please select a main file', 'err'); return; }
+
+  const fd = new FormData();
+  fd.append('file',        mainFile);
+  fd.append('name',        document.getElementById('upName').value.trim()  || mainFile.name);
+  fd.append('description', document.getElementById('upDesc').value.trim());
+  fd.append('tags',        document.getElementById('upTags').value.trim());
+  fd.append('uploader',    document.getElementById('uploader').value.trim());
+  fd.append('author',      document.getElementById('upAuthor').value.trim());
+  fd.append('assetType',   document.getElementById('upAssetType').value);
+
+  const thumb = document.getElementById('thumbFile').files[0];
+  if (thumb) fd.append('thumbnail', thumb);
+  for (const f of document.getElementById('imgsFile').files) fd.append('images', f);
+
+  document.getElementById('progressWrap').style.display = 'block';
+  document.getElementById('progressBar').style.width = '30%';
+
+  try {
+    const r = await fetch('/api/assets', { method: 'POST', body: fd });
+    document.getElementById('progressBar').style.width = '100%';
+    if (!r.ok) { const e = await r.json(); throw new Error(e.error || r.statusText); }
+    toast('Asset uploaded!', 'ok');
+    closeUpload();
+    loadAndRender();
+  } catch(e) {
+    toast('Upload failed: ' + e.message, 'err');
+  } finally {
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = '0';
+      document.getElementById('progressWrap').style.display = 'none';
+    }, 600);
+  }
+});
+
+function syncTypeUI(type) {
+  document.querySelectorAll('.pill').forEach(p =>
+    p.classList.toggle('active', p.dataset.type === type)
+  );
+  document.querySelectorAll('.sidebar-link').forEach(l =>
+    l.classList.toggle('active', l.dataset.type === type)
+  );
+}
+
+document.querySelectorAll('.pill').forEach(p => {
+  p.addEventListener('click', () => {
+    state.typeFilter = p.dataset.type;
+    syncTypeUI(state.typeFilter);
+    loadAndRender();
+  });
+});
+
+document.querySelectorAll('.sidebar-link').forEach(l => {
+  l.addEventListener('click', () => {
+    state.typeFilter = l.dataset.type;
+    syncTypeUI(state.typeFilter);
+    loadAndRender();
+  });
+});
+
+let searchTimer;
+document.getElementById('searchInput').addEventListener('input', e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    state.query = e.target.value;
+    loadAndRender();
+  }, 250);
+});
+
+document.getElementById('sortSelect').addEventListener('change', e => {
+  state.sort = e.target.value;
+  loadAndRender();
+});
+
+let dragCounter = 0;
+document.addEventListener('dragenter', e => {
+  if ([...e.dataTransfer.types].includes('Files')) {
+    dragCounter++;
+    document.getElementById('dropOverlay').classList.add('show');
+  }
+});
+document.addEventListener('dragleave', () => {
+  dragCounter--;
+  if (dragCounter <= 0) { dragCounter = 0; document.getElementById('dropOverlay').classList.remove('show'); }
+});
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => {
+  e.preventDefault();
+  dragCounter = 0;
+  document.getElementById('dropOverlay').classList.remove('show');
+  const f = e.dataTransfer.files[0];
+  if (!f) return;
+  const dt = new DataTransfer();
+  dt.items.add(f);
+  document.getElementById('mainFile').files = dt.files;
+  document.getElementById('mainFileName').textContent = f.name;
+  document.getElementById('upName').value = f.name.replace(/\.[^.]+$/, '');
+  document.getElementById('uploadBg').classList.add('open');
+});
+
+document.getElementById('openAbout').addEventListener('click', () => {
+  document.getElementById('aboutBg').classList.add('open');
+});
+document.getElementById('closeAbout').addEventListener('click', () => {
+  document.getElementById('aboutBg').classList.remove('open');
+});
+document.getElementById('aboutBg').addEventListener('click', e => {
+  if (e.target === e.currentTarget) document.getElementById('aboutBg').classList.remove('open');
+});
+
+loadAndRender();
+</script>
+</body>
+</html>

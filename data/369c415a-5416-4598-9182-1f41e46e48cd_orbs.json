@@ -1,0 +1,24 @@
+{
+  "id": "369c415a-5416-4598-9182-1f41e46e48cd",
+  "name": "Orbs",
+  "description": "A bunch of orbs to use.",
+  "tags": [
+    "orb",
+    "item",
+    "ability",
+    "effect",
+    "spell",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "OrbsV2.zip",
+  "fileUrl": "/uploads/369c415a-5416-4598-9182-1f41e46e48cd/OrbsV2.zip",
+  "thumbnail": "/uploads/369c415a-5416-4598-9182-1f41e46e48cd/Orbs.jpg",
+  "images": [
+    "/uploads/369c415a-5416-4598-9182-1f41e46e48cd/Orbs.jpg"
+  ],
+  "size": 58734,
+  "uploadedAt": "2026-06-27T11:46:14.264Z"
+}

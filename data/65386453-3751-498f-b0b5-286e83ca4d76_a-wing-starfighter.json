@@ -1,0 +1,29 @@
+{
+  "id": "65386453-3751-498f-b0b5-286e83ca4d76",
+  "name": "A-Wing Starfighter",
+  "description": "An A-Wing starfighter from star wars.",
+  "tags": [
+    "unit",
+    "sci-fi",
+    "star wars",
+    "spaceship",
+    "space fighter",
+    "jet",
+    "space",
+    "wc3c"
+  ],
+  "uploader": "AdinizWarcraft",
+  "author": "Illidan(EvilX), Olof Moleman",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "A-Wing.zip",
+  "fileUrl": "/uploads/65386453-3751-498f-b0b5-286e83ca4d76/A-Wing.zip",
+  "thumbnail": "/uploads/65386453-3751-498f-b0b5-286e83ca4d76/AWing_Screenshot.jpg",
+  "images": [
+    "/uploads/65386453-3751-498f-b0b5-286e83ca4d76/AWing_InGame.jpg",
+    "/uploads/65386453-3751-498f-b0b5-286e83ca4d76/AWing_Screenshot.jpg"
+  ],
+  "size": 57251,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T18:17:21.406Z"
+}

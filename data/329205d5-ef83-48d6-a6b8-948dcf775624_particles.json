@@ -1,0 +1,24 @@
+{
+  "id": "329205d5-ef83-48d6-a6b8-948dcf775624",
+  "name": "Particles",
+  "description": "Basic particles.\r\n\r\nSource: WC3C",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "firework",
+    "buff",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "particles.zip",
+  "fileUrl": "/uploads/329205d5-ef83-48d6-a6b8-948dcf775624/particles.zip",
+  "thumbnail": "/uploads/329205d5-ef83-48d6-a6b8-948dcf775624/particlestuff.jpg",
+  "images": [
+    "/uploads/329205d5-ef83-48d6-a6b8-948dcf775624/particlestuff.jpg"
+  ],
+  "size": 3454,
+  "uploadedAt": "2026-06-27T11:45:04.585Z"
+}

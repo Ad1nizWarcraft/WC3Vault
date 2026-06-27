@@ -1,0 +1,40 @@
+{
+  "id": "155c41e1-31db-4e3e-be67-c365052e59bf",
+  "name": "Nova Pack 2",
+  "description": "Another pack of nova spells (akin to frost nova) to be used in spells and whatnot.",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "wc3c",
+    "nova",
+    "frost nova",
+    "dark",
+    "darkness",
+    "void",
+    "earth",
+    "stone",
+    "fire",
+    "flame",
+    "ember",
+    "ice",
+    "light",
+    "divine",
+    "holy"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Novas___.ZIP",
+  "fileUrl": "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/Novas___.ZIP",
+  "thumbnail": "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/frostnova.jpg",
+  "images": [
+    "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/darknova.jpg",
+    "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/earthnova.jpg",
+    "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/firenova2.jpg",
+    "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/frostnova.jpg",
+    "/uploads/155c41e1-31db-4e3e-be67-c365052e59bf/lightnova.jpg"
+  ],
+  "size": 15388,
+  "uploadedAt": "2026-06-27T11:50:43.601Z"
+}

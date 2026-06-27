@@ -1,0 +1,36 @@
+{
+  "id": "c1cdb64f-7a6e-4753-9b13-c765e2ea714e",
+  "name": "Spear/Impale Effects",
+  "description": "A set of effects, useful for impale.",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "impale",
+    "wc3c",
+    "spear",
+    "burrow",
+    "blood",
+    "vertebre",
+    "stone"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Spearpack.zip",
+  "fileUrl": "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Spearpack.zip",
+  "thumbnail": "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Vertebral_spear.jpg",
+  "images": [
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Basaltic_spear.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Blade_spear1.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Impaled___.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Impaled__.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Impaled_.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Stone_spear.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Sylvan_spear_1.jpg",
+    "/uploads/c1cdb64f-7a6e-4753-9b13-c765e2ea714e/Vertebral_spear.jpg"
+  ],
+  "size": 15332,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T15:25:19.042Z"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "973a6359-ae16-4fd6-8b83-9b85a9d73208",
+  "name": "Water spells",
+  "description": "Water/ocean spells/effects",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "wc3c",
+    "water",
+    "ocean",
+    "cold",
+    "sea",
+    "naga",
+    "geiser",
+    "bubble",
+    "buff"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "MoyackWaterFx.ZIP",
+  "fileUrl": "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/MoyackWaterFx.ZIP",
+  "thumbnail": "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/supremegeiser.jpg",
+  "images": [
+    "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/bubbletrap.jpg",
+    "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/geiser.jpg",
+    "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/greatergeiser.jpg",
+    "/uploads/973a6359-ae16-4fd6-8b83-9b85a9d73208/supremegeiser.jpg"
+  ],
+  "size": 3551,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T15:29:41.106Z"
+}

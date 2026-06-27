@@ -1,0 +1,24 @@
+{
+  "id": "a869950f-6555-4ccb-8a74-696fe428dfea",
+  "name": "Diamond",
+  "description": "Diamond items",
+  "tags": [
+    "item",
+    "wc3c",
+    "diamond",
+    "gem"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Diamond.zip",
+  "fileUrl": "/uploads/a869950f-6555-4ccb-8a74-696fe428dfea/Diamond.zip",
+  "thumbnail": "/uploads/a869950f-6555-4ccb-8a74-696fe428dfea/DiamondScreen.jpg",
+  "images": [
+    "/uploads/a869950f-6555-4ccb-8a74-696fe428dfea/DiamondScreen.jpg",
+    "/uploads/a869950f-6555-4ccb-8a74-696fe428dfea/DiamondScreen2.JPG"
+  ],
+  "size": 2801,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T15:27:28.145Z"
+}

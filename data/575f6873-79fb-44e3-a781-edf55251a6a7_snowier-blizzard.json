@@ -1,0 +1,32 @@
+{
+  "id": "575f6873-79fb-44e3-a781-edf55251a6a7",
+  "name": "Snowier Blizzard",
+  "description": "Blizzard but with proper snow effects.",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "wc3c",
+    "blizzard",
+    "snow",
+    "frost",
+    "ice",
+    "cold"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "SnowyBlizzardTarget.zip",
+  "fileUrl": "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/SnowyBlizzardTarget.zip",
+  "thumbnail": "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Many_Missiles.jpg",
+  "images": [
+    "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Bit_After_Impact.jpg",
+    "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Blizz_Snow.jpg",
+    "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Many_Missiles_Impact.jpg",
+    "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Many_Missiles.jpg",
+    "/uploads/575f6873-79fb-44e3-a781-edf55251a6a7/Tip_of_Missile.jpg"
+  ],
+  "size": 3141,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T15:28:08.147Z"
+}

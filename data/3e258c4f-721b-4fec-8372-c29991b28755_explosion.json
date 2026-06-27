@@ -1,0 +1,25 @@
+{
+  "id": "3e258c4f-721b-4fec-8372-c29991b28755",
+  "name": "Explosion",
+  "description": "Explosion effect.",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "explosion",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Explosion.zip",
+  "fileUrl": "/uploads/3e258c4f-721b-4fec-8372-c29991b28755/Explosion.zip",
+  "thumbnail": "/uploads/3e258c4f-721b-4fec-8372-c29991b28755/Explosion2.jpg",
+  "images": [
+    "/uploads/3e258c4f-721b-4fec-8372-c29991b28755/ExplMini.jpg",
+    "/uploads/3e258c4f-721b-4fec-8372-c29991b28755/Explosion2.jpg",
+    "/uploads/3e258c4f-721b-4fec-8372-c29991b28755/GroundMini.jpg"
+  ],
+  "size": 4759,
+  "uploadedAt": "2026-06-27T12:07:50.787Z"
+}

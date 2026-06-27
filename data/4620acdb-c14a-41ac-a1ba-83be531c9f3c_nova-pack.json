@@ -1,0 +1,43 @@
+{
+  "id": "4620acdb-c14a-41ac-a1ba-83be531c9f3c",
+  "name": "Nova Pack",
+  "description": "A pack of nova spells (akin to frost nova) to be used in spells and whatnot.",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "wc3c",
+    "nova",
+    "frost nova",
+    "dark",
+    "darkness",
+    "void",
+    "earth",
+    "stone",
+    "fire",
+    "flame",
+    "ember",
+    "ice",
+    "light",
+    "divine",
+    "holy"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "SmallNovas.ZIP",
+  "fileUrl": "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/SmallNovas.ZIP",
+  "thumbnail": "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/darknova.jpg",
+  "images": [
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/darknova.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/darknovasmall.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/earthnova.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/earthnovasmall.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/firenova2.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/firenovasmall.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/frostnova.jpg",
+    "/uploads/4620acdb-c14a-41ac-a1ba-83be531c9f3c/lightnova.jpg"
+  ],
+  "size": 12269,
+  "uploadedAt": "2026-06-27T11:49:45.599Z"
+}

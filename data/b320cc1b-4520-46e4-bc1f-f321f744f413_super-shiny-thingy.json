@@ -1,0 +1,27 @@
+{
+  "id": "b320cc1b-4520-46e4-bc1f-f321f744f413",
+  "name": "Super Shiny Thingy",
+  "description": "Shiny.\r\n\r\nSource: WC3C",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "bright",
+    "light",
+    "blind",
+    "shiny",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "SuperShinyThing.ZIP",
+  "fileUrl": "/uploads/b320cc1b-4520-46e4-bc1f-f321f744f413/SuperShinyThing.ZIP",
+  "thumbnail": "/uploads/b320cc1b-4520-46e4-bc1f-f321f744f413/shinything.jpg",
+  "images": [
+    "/uploads/b320cc1b-4520-46e4-bc1f-f321f744f413/shinything.jpg",
+    "/uploads/b320cc1b-4520-46e4-bc1f-f321f744f413/supershinything2.jpg"
+  ],
+  "size": 6346,
+  "uploadedAt": "2026-06-27T11:44:11.646Z"
+}

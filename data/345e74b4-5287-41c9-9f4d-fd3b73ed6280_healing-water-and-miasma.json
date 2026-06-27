@@ -1,0 +1,39 @@
+{
+  "id": "345e74b4-5287-41c9-9f4d-fd3b73ed6280",
+  "name": "Healing Water and Miasma",
+  "description": "A bundle of effects, includes:\r\nHealing Water\r\nHoly Aurora\r\nMiasma\r\nWarmth",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "heal",
+    "water",
+    "holy",
+    "light",
+    "fire",
+    "flame",
+    "ember",
+    "dark",
+    "void",
+    "darkness",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "HealingWater_Miasma.ZIP",
+  "fileUrl": "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/HealingWater_Miasma.ZIP",
+  "thumbnail": "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/healingwater2.jpg",
+  "images": [
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/healingwater.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/healingwater2.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/holyaurora.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/holyaurora2.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/miasma.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/miasma2.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/warmth.jpg",
+    "/uploads/345e74b4-5287-41c9-9f4d-fd3b73ed6280/warmth2.jpg"
+  ],
+  "size": 22935,
+  "uploadedAt": "2026-06-27T11:25:15.534Z"
+}

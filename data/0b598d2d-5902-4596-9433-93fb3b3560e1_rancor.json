@@ -1,0 +1,26 @@
+{
+  "id": "0b598d2d-5902-4596-9433-93fb3b3560e1",
+  "name": "Rancor",
+  "description": "A rancor creature from star wars.",
+  "tags": [
+    "unit",
+    "wc3c",
+    "star wars",
+    "rancor",
+    "monster",
+    "creature"
+  ],
+  "uploader": "AdinizWarcraft",
+  "author": "Olof Moleman",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Rancor.zip",
+  "fileUrl": "/uploads/0b598d2d-5902-4596-9433-93fb3b3560e1/Rancor.zip",
+  "thumbnail": "/uploads/0b598d2d-5902-4596-9433-93fb3b3560e1/Rancorpreview.jpg",
+  "images": [
+    "/uploads/0b598d2d-5902-4596-9433-93fb3b3560e1/Rancoringame.jpg"
+  ],
+  "size": 139442,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T18:15:26.290Z"
+}

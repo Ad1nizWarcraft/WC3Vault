@@ -1,0 +1,36 @@
+{
+  "id": "55945d29-c2a9-45c5-a0f4-cd03d4594b73",
+  "name": "Summon Weapon effect",
+  "description": "Magical summoned weapons. Source: wc3c",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "buff",
+    "weapon",
+    "summon",
+    "arcane",
+    "holy",
+    "blood",
+    "death",
+    "claw",
+    "sword",
+    "maul",
+    "wc3c"
+  ],
+  "uploader": "AdinizWarcraft",
+  "author": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Weapon_summon_FX_pack.zip",
+  "fileUrl": "/uploads/55945d29-c2a9-45c5-a0f4-cd03d4594b73/Weapon_summon_FX_pack.zip",
+  "thumbnail": "/uploads/55945d29-c2a9-45c5-a0f4-cd03d4594b73/Deathclaw.jpg",
+  "images": [
+    "/uploads/55945d29-c2a9-45c5-a0f4-cd03d4594b73/Deathclaw.jpg",
+    "/uploads/55945d29-c2a9-45c5-a0f4-cd03d4594b73/Holymaul.jpg",
+    "/uploads/55945d29-c2a9-45c5-a0f4-cd03d4594b73/Mythicsword.jpg"
+  ],
+  "size": 38474,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T18:08:12.426Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "268797b9-0575-4c80-9242-6c3d68b08369",
+  "name": "Spinning Chain Pack",
+  "description": "Pack of effect models with spinning weapons.\r\n\r\nSource: Wc3c",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "wc3c",
+    "chain",
+    "blade",
+    "axe",
+    "spin",
+    "bladestorm",
+    "whirlwind",
+    "hammer",
+    "sickle",
+    "boulder",
+    "demolition",
+    "flail"
+  ],
+  "uploader": "AdinizWarcraft",
+  "author": null,
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Spining_chain_pack.zip",
+  "fileUrl": "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Spining_chain_pack.zip",
+  "thumbnail": "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Bladechain.jpg",
+  "images": [
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Bladechain.jpg",
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/ChainAxe.jpg",
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Chainhammer.jpg",
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/ChainSickle.jpg",
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Demolition_boulder.jpg",
+    "/uploads/268797b9-0575-4c80-9242-6c3d68b08369/Flail.jpg"
+  ],
+  "size": 13496,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T18:02:55.128Z"
+}

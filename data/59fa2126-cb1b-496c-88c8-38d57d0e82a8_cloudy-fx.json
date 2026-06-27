@@ -1,0 +1,43 @@
+{
+  "id": "59fa2126-cb1b-496c-88c8-38d57d0e82a8",
+  "name": "Cloudy FX",
+  "description": "A series of effect models to be used as clouds/rain.\r\n\r\nSource: WC3C",
+  "tags": [
+    "effect",
+    "spell",
+    "ability",
+    "cloud",
+    "cumulus",
+    "rain",
+    "fire",
+    "flame",
+    "hail",
+    "lightning",
+    "thunder",
+    "electric",
+    "poison",
+    "toxic",
+    "storm",
+    "stone",
+    "blood",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Cloudy_FX_pack.zip",
+  "fileUrl": "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Cloudy_FX_pack.zip",
+  "thumbnail": "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Rain_storm.jpg",
+  "images": [
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Blood_rain.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Fire_rain.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Hail_storm.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Lightning_storm.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Poison_cloud.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Rain_storm.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Rain.jpg",
+    "/uploads/59fa2126-cb1b-496c-88c8-38d57d0e82a8/Stone_rain.jpg"
+  ],
+  "size": 5436,
+  "uploadedAt": "2026-06-27T11:41:38.283Z"
+}

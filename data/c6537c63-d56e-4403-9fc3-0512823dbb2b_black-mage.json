@@ -1,0 +1,28 @@
+{
+  "id": "c6537c63-d56e-4403-9fc3-0512823dbb2b",
+  "name": "Black Mage",
+  "description": "Black mage unit",
+  "tags": [
+    "unit",
+    "mage",
+    "wizard",
+    "nomad",
+    "druid",
+    "sorcerer",
+    "wc3c"
+  ],
+  "uploader": "AdinizWarcraft",
+  "author": null,
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "0411_Black_Mage.zip",
+  "fileUrl": "/uploads/c6537c63-d56e-4403-9fc3-0512823dbb2b/0411_Black_Mage.zip",
+  "thumbnail": "/uploads/c6537c63-d56e-4403-9fc3-0512823dbb2b/models_10865_screenshot.jpg",
+  "images": [
+    "/uploads/c6537c63-d56e-4403-9fc3-0512823dbb2b/models_10865_screenshot.jpg",
+    "/uploads/c6537c63-d56e-4403-9fc3-0512823dbb2b/Untitled-2.jpg"
+  ],
+  "size": 34681,
+  "downloads": 0,
+  "uploadedAt": "2026-06-27T18:19:21.159Z"
+}

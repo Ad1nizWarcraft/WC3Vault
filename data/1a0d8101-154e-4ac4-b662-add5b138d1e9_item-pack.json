@@ -1,0 +1,21 @@
+{
+  "id": "1a0d8101-154e-4ac4-b662-add5b138d1e9",
+  "name": "Item Pack",
+  "description": "Items from the Mario franchise.\r\n\r\nSource: WC3C",
+  "tags": [
+    "item",
+    "mario",
+    "wc3c"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "SMB-Item-Pack.zip",
+  "fileUrl": "/uploads/1a0d8101-154e-4ac4-b662-add5b138d1e9/SMB-Item-Pack.zip",
+  "thumbnail": "/uploads/1a0d8101-154e-4ac4-b662-add5b138d1e9/MarioItems-InGame.jpg",
+  "images": [
+    "/uploads/1a0d8101-154e-4ac4-b662-add5b138d1e9/MarioItems-InGame.jpg"
+  ],
+  "size": 134045,
+  "uploadedAt": "2026-06-27T11:42:35.269Z"
+}

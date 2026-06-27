@@ -1,0 +1,35 @@
+{
+  "id": "13857294-dc77-461e-96cd-e5cfdc5c8ef7",
+  "name": "Western Attachment Pack",
+  "description": "Western weapons and hat.",
+  "tags": [
+    "item",
+    "attachment",
+    "wc3c",
+    "wild west",
+    "western",
+    "gun",
+    "rifle",
+    "weapon",
+    "hat",
+    "cowboy"
+  ],
+  "uploader": "Unknown",
+  "assetType": "mdx",
+  "ext": "zip",
+  "filename": "Western_Pack.zip",
+  "fileUrl": "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Western_Pack.zip",
+  "thumbnail": "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/WesternPack.jpg",
+  "images": [
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Colt.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Cowboyhat.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Dung_ingame.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Rail_ingame.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Rail.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Red_wolf.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Shotgun.jpg",
+    "/uploads/13857294-dc77-461e-96cd-e5cfdc5c8ef7/Western_pack.jpg"
+  ],
+  "size": 39625,
+  "uploadedAt": "2026-06-27T11:55:38.004Z"
+}
